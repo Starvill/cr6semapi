@@ -32,10 +32,7 @@ router.get('/won/:userId', async (req, res) => {
     const userId = req.params.userId;
     const wonItems = await Item.findAll({
       where: {
-        win_id: userId,
-        endBidTime: {
-          [Sequelize.Op.lt]: time
-        }
+        win_id: userId
       }
     });
     res.status(200).json(wonItems);
